@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TSGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TSG.dbo.Echipe_TSG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Echipe_TSG">
+    <Key>
+      <PropertyRef Name="ID_Echipa" />
+      <PropertyRef Name="ID_TeamLeader" />
+    </Key>
+    <Property Name="ID_Echipa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_TeamLeader" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TSG.dbo.Personal_Proiecte_TSG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Personal_Proiecte_TSG">
+    <Key>
+      <PropertyRef Name="ID_Personal" />
+      <PropertyRef Name="ID_Proiect" />
+    </Key>
+    <Property Name="ID_Personal" Type="int" Nullable="false" />
+    <Property Name="ID_Proiect" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personal_TSG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ID_Proiect" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TSG.dbo.Proiecte_TSG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Proiecte_TSG">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Proiect" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Proiect" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TSG.dbo.Venit_Personal_TSG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Venit_Personal_TSG">
+    <Key>
+      <PropertyRef Name="ID_Personal" />
+      <PropertyRef Name="Venit" />
+    </Key>
+    <Property Name="ID_Personal" Type="int" Nullable="false" />
+    <Property Name="Venit" Type="float" Nullable="false" />
+  </EntityType>
+  <Function Name="CreateEchipe_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_TeamLeader" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CreatePersonal_Proiecte_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Personal" Type="int" Mode="In" />
+    <Parameter Name="ID_Proiect" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CreatePersonal_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nume" Type="varchar" Mode="In" />
+    <Parameter Name="ID_Proiect" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CreateProiecte_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Proiect" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CreateVenit_Personal_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Personal" Type="int" Mode="In" />
+    <Parameter Name="Venit" Type="float" Mode="In" />
+  </Function>
+  <Function Name="DeleteEchipe_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Echipa" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DeletePersonal_Proiecte_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Proiect" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePersonal_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nume" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteProiecte_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Proiect" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteVenit_Personal_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Personal" Type="int" Mode="In" />
+  </Function>
+  <Function Name="JoinMany_To_Many" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="JoinOne_To_Many" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="JoinOne_To_One" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectEchipe_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPersonal_Proiecte_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPersonal_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProiecte_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectVenit_Personal_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UpdateEchipe_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Echipa" Type="int" Mode="In" />
+    <Parameter Name="ID_TeamLeader" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdatePersonal_Proiecte_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Personal" Type="int" Mode="In" />
+    <Parameter Name="ID_Proiect" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdatePersonal_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Proiect" Type="int" Mode="In" />
+    <Parameter Name="Nume" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateProiecte_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NouProiect" Type="varchar" Mode="In" />
+    <Parameter Name="Proiect" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateVenit_Personal_TSG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Personal" Type="int" Mode="In" />
+    <Parameter Name="Venit" Type="float" Mode="In" />
+  </Function>
+  <EntityContainer Name="TSGModelStoreContainer">
+    <EntitySet Name="Personal_TSG" EntityType="Self.Personal_TSG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Echipe_TSG" EntityType="Self.Echipe_TSG" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Echipe_TSG].[ID_Echipa] AS [ID_Echipa], 
+    [Echipe_TSG].[ID_TeamLeader] AS [ID_TeamLeader]
+    FROM [dbo].[Echipe_TSG] AS [Echipe_TSG]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Personal_Proiecte_TSG" EntityType="Self.Personal_Proiecte_TSG" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Personal_Proiecte_TSG].[ID_Personal] AS [ID_Personal], 
+    [Personal_Proiecte_TSG].[ID_Proiect] AS [ID_Proiect]
+    FROM [dbo].[Personal_Proiecte_TSG] AS [Personal_Proiecte_TSG]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Proiecte_TSG" EntityType="Self.Proiecte_TSG" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Proiecte_TSG].[ID] AS [ID], 
+    [Proiecte_TSG].[Proiect] AS [Proiect]
+    FROM [dbo].[Proiecte_TSG] AS [Proiecte_TSG]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Venit_Personal_TSG" EntityType="Self.Venit_Personal_TSG" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Venit_Personal_TSG].[ID_Personal] AS [ID_Personal], 
+    [Venit_Personal_TSG].[Venit] AS [Venit]
+    FROM [dbo].[Venit_Personal_TSG] AS [Venit_Personal_TSG]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

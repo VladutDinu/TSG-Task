@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TSGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Personal_TSG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Proiect" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Echipe_TSG">
+    <Key>
+      <PropertyRef Name="ID_Echipa" />
+      <PropertyRef Name="ID_TeamLeader" />
+    </Key>
+    <Property Name="ID_Echipa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_TeamLeader" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personal_Proiecte_TSG">
+    <Key>
+      <PropertyRef Name="ID_Personal" />
+      <PropertyRef Name="ID_Proiect" />
+    </Key>
+    <Property Name="ID_Personal" Type="Int32" Nullable="false" />
+    <Property Name="ID_Proiect" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proiecte_TSG">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Proiect" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Proiect" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Venit_Personal_TSG">
+    <Key>
+      <PropertyRef Name="ID_Personal" />
+      <PropertyRef Name="Venit" />
+    </Key>
+    <Property Name="ID_Personal" Type="Int32" Nullable="false" />
+    <Property Name="Venit" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="TSGEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Personal_TSG" EntityType="Self.Personal_TSG" />
+    <EntitySet Name="Echipe_TSG" EntityType="Self.Echipe_TSG" />
+    <EntitySet Name="Personal_Proiecte_TSG" EntityType="Self.Personal_Proiecte_TSG" />
+    <EntitySet Name="Proiecte_TSG" EntityType="Self.Proiecte_TSG" />
+    <EntitySet Name="Venit_Personal_TSG" EntityType="Self.Venit_Personal_TSG" />
+    <FunctionImport Name="CreateEchipe_TSG">
+      <Parameter Name="ID_TeamLeader" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CreatePersonal_Proiecte_TSG">
+      <Parameter Name="ID_Personal" Mode="In" Type="Int32" />
+      <Parameter Name="ID_Proiect" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CreatePersonal_TSG">
+      <Parameter Name="Nume" Mode="In" Type="String" />
+      <Parameter Name="ID_Proiect" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CreateProiecte_TSG">
+      <Parameter Name="Proiect" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CreateVenit_Personal_TSG">
+      <Parameter Name="ID_Personal" Mode="In" Type="Int32" />
+      <Parameter Name="Venit" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteEchipe_TSG">
+      <Parameter Name="ID_Echipa" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeletePersonal_Proiecte_TSG">
+      <Parameter Name="ID_Proiect" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeletePersonal_TSG">
+      <Parameter Name="Nume" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteProiecte_TSG">
+      <Parameter Name="Proiect" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteVenit_Personal_TSG">
+      <Parameter Name="ID_Personal" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="JoinMany_To_Many" ReturnType="Collection(TSGModel.JoinMany_To_Many_Result)" />
+    <FunctionImport Name="JoinOne_To_Many" ReturnType="Collection(TSGModel.JoinOne_To_Many_Result)" />
+    <FunctionImport Name="JoinOne_To_One" ReturnType="Collection(TSGModel.JoinOne_To_One_Result)" />
+    <FunctionImport Name="SelectEchipe_TSG" ReturnType="Collection(TSGModel.SelectEchipe_TSG_Result)" />
+    <FunctionImport Name="SelectPersonal_Proiecte_TSG" ReturnType="Collection(TSGModel.SelectPersonal_Proiecte_TSG_Result)" />
+    <FunctionImport Name="SelectPersonal_TSG" ReturnType="Collection(TSGModel.SelectPersonal_TSG_Result)" />
+    <FunctionImport Name="SelectProiecte_TSG" ReturnType="Collection(TSGModel.SelectProiecte_TSG_Result)" />
+    <FunctionImport Name="SelectVenit_Personal_TSG" ReturnType="Collection(TSGModel.SelectVenit_Personal_TSG_Result)" />
+    <FunctionImport Name="UpdateEchipe_TSG">
+      <Parameter Name="ID_Echipa" Mode="In" Type="Int32" />
+      <Parameter Name="ID_TeamLeader" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdatePersonal_Proiecte_TSG">
+      <Parameter Name="ID_Personal" Mode="In" Type="Int32" />
+      <Parameter Name="ID_Proiect" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdatePersonal_TSG">
+      <Parameter Name="ID_Proiect" Mode="In" Type="Int32" />
+      <Parameter Name="Nume" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateProiecte_TSG">
+      <Parameter Name="NouProiect" Mode="In" Type="String" />
+      <Parameter Name="Proiect" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateVenit_Personal_TSG">
+      <Parameter Name="ID_Personal" Mode="In" Type="Int32" />
+      <Parameter Name="Venit" Mode="In" Type="Double" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="JoinMany_To_Many_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Nume" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ID_Proiect" Nullable="false" />
+    <Property Type="Int32" Name="ID_Personal" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="JoinOne_To_Many_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Nume" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ID_Echipa" Nullable="false" />
+    <Property Type="Int32" Name="ID_TeamLeader" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="JoinOne_To_One_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Nume" Nullable="false" MaxLength="255" />
+    <Property Type="Double" Name="Venit" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SelectEchipe_TSG_Result">
+    <Property Type="Int32" Name="ID_Echipa" Nullable="false" />
+    <Property Type="Int32" Name="ID_TeamLeader" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SelectPersonal_Proiecte_TSG_Result">
+    <Property Type="Int32" Name="ID_Personal" Nullable="false" />
+    <Property Type="Int32" Name="ID_Proiect" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SelectPersonal_TSG_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Nume" Nullable="false" MaxLength="255" />
+    <Property Type="Int32" Name="ID_Proiect" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SelectProiecte_TSG_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Proiect" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="SelectVenit_Personal_TSG_Result">
+    <Property Type="Int32" Name="ID_Personal" Nullable="false" />
+    <Property Type="Double" Name="Venit" Nullable="false" />
+  </ComplexType>
+</Schema>

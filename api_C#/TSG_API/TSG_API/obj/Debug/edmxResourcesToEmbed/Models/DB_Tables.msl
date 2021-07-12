@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TSGModelStoreContainer" CdmEntityContainer="TSGEntities">
+    <EntitySetMapping Name="Personal_TSG">
+      <EntityTypeMapping TypeName="TSGModel.Personal_TSG">
+        <MappingFragment StoreEntitySet="Personal_TSG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Proiect" ColumnName="ID_Proiect" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Echipe_TSG">
+      <EntityTypeMapping TypeName="TSGModel.Echipe_TSG">
+        <MappingFragment StoreEntitySet="Echipe_TSG">
+          <ScalarProperty Name="ID_Echipa" ColumnName="ID_Echipa" />
+          <ScalarProperty Name="ID_TeamLeader" ColumnName="ID_TeamLeader" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personal_Proiecte_TSG">
+      <EntityTypeMapping TypeName="TSGModel.Personal_Proiecte_TSG">
+        <MappingFragment StoreEntitySet="Personal_Proiecte_TSG">
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="ID_Proiect" ColumnName="ID_Proiect" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proiecte_TSG">
+      <EntityTypeMapping TypeName="TSGModel.Proiecte_TSG">
+        <MappingFragment StoreEntitySet="Proiecte_TSG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Proiect" ColumnName="Proiect" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Venit_Personal_TSG">
+      <EntityTypeMapping TypeName="TSGModel.Venit_Personal_TSG">
+        <MappingFragment StoreEntitySet="Venit_Personal_TSG">
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="Venit" ColumnName="Venit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CreateEchipe_TSG" FunctionName="TSGModel.Store.CreateEchipe_TSG" />
+    <FunctionImportMapping FunctionImportName="CreatePersonal_Proiecte_TSG" FunctionName="TSGModel.Store.CreatePersonal_Proiecte_TSG" />
+    <FunctionImportMapping FunctionImportName="CreatePersonal_TSG" FunctionName="TSGModel.Store.CreatePersonal_TSG" />
+    <FunctionImportMapping FunctionImportName="CreateProiecte_TSG" FunctionName="TSGModel.Store.CreateProiecte_TSG" />
+    <FunctionImportMapping FunctionImportName="CreateVenit_Personal_TSG" FunctionName="TSGModel.Store.CreateVenit_Personal_TSG" />
+    <FunctionImportMapping FunctionImportName="DeleteEchipe_TSG" FunctionName="TSGModel.Store.DeleteEchipe_TSG" />
+    <FunctionImportMapping FunctionImportName="DeletePersonal_Proiecte_TSG" FunctionName="TSGModel.Store.DeletePersonal_Proiecte_TSG" />
+    <FunctionImportMapping FunctionImportName="DeletePersonal_TSG" FunctionName="TSGModel.Store.DeletePersonal_TSG" />
+    <FunctionImportMapping FunctionImportName="DeleteProiecte_TSG" FunctionName="TSGModel.Store.DeleteProiecte_TSG" />
+    <FunctionImportMapping FunctionImportName="DeleteVenit_Personal_TSG" FunctionName="TSGModel.Store.DeleteVenit_Personal_TSG" />
+    <FunctionImportMapping FunctionImportName="JoinMany_To_Many" FunctionName="TSGModel.Store.JoinMany_To_Many">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TSGModel.JoinMany_To_Many_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Proiect" ColumnName="ID_Proiect" />
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="JoinOne_To_Many" FunctionName="TSGModel.Store.JoinOne_To_Many">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TSGModel.JoinOne_To_Many_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Echipa" ColumnName="ID_Echipa" />
+          <ScalarProperty Name="ID_TeamLeader" ColumnName="ID_TeamLeader" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="JoinOne_To_One" FunctionName="TSGModel.Store.JoinOne_To_One">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TSGModel.JoinOne_To_One_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Venit" ColumnName="Venit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectEchipe_TSG" FunctionName="TSGModel.Store.SelectEchipe_TSG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TSGModel.SelectEchipe_TSG_Result">
+          <ScalarProperty Name="ID_Echipa" ColumnName="ID_Echipa" />
+          <ScalarProperty Name="ID_TeamLeader" ColumnName="ID_TeamLeader" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPersonal_Proiecte_TSG" FunctionName="TSGModel.Store.SelectPersonal_Proiecte_TSG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TSGModel.SelectPersonal_Proiecte_TSG_Result">
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="ID_Proiect" ColumnName="ID_Proiect" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPersonal_TSG" FunctionName="TSGModel.Store.SelectPersonal_TSG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TSGModel.SelectPersonal_TSG_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Proiect" ColumnName="ID_Proiect" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProiecte_TSG" FunctionName="TSGModel.Store.SelectProiecte_TSG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TSGModel.SelectProiecte_TSG_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Proiect" ColumnName="Proiect" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectVenit_Personal_TSG" FunctionName="TSGModel.Store.SelectVenit_Personal_TSG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TSGModel.SelectVenit_Personal_TSG_Result">
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="Venit" ColumnName="Venit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateEchipe_TSG" FunctionName="TSGModel.Store.UpdateEchipe_TSG" />
+    <FunctionImportMapping FunctionImportName="UpdatePersonal_Proiecte_TSG" FunctionName="TSGModel.Store.UpdatePersonal_Proiecte_TSG" />
+    <FunctionImportMapping FunctionImportName="UpdatePersonal_TSG" FunctionName="TSGModel.Store.UpdatePersonal_TSG" />
+    <FunctionImportMapping FunctionImportName="UpdateProiecte_TSG" FunctionName="TSGModel.Store.UpdateProiecte_TSG" />
+    <FunctionImportMapping FunctionImportName="UpdateVenit_Personal_TSG" FunctionName="TSGModel.Store.UpdateVenit_Personal_TSG" />
+  </EntityContainerMapping>
+</Mapping>
